@@ -105,7 +105,14 @@ open class TTSegmentedControl: UIView {
         super.layoutSubviews()
         
         if !isConfigurated {
-            reconfigureView()
+            configureItemsConent()
+            configureViewBounds()
+
+            configureContainerView()
+            configureItems()
+            configureSelectedView()
+            configureSelectedLabelsView()
+            configureSelectedLabelItems()
             
             isConfigurated = true
         }
@@ -123,15 +130,11 @@ open class TTSegmentedControl: UIView {
         
     }
 
-    open func reconfigureView() {
+    open func reconfigureColorView() {
+        thumbContainerView.backgroundColor = UIColor.clear
+        thumbView.backgroundColor = thumbColor
         configureItemsConent()
-        configureViewBounds()
-
-        configureContainerView()
-        configureItems()
-        configureSelectedView()
-        configureSelectedLabelsView()
-        configureSelectedLabelItems()
+        layoutSubviews()
     }
     
     //MARK: - Getters
