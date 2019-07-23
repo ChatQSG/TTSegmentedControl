@@ -105,14 +105,7 @@ open class TTSegmentedControl: UIView {
         super.layoutSubviews()
         
         if !isConfigurated {
-            configureItemsConent()
-            configureViewBounds()
-            
-            configureContainerView()
-            configureItems()
-            configureSelectedView()
-            configureSelectedLabelsView()
-            configureSelectedLabelItems()
+            reconfigureView()
             
             isConfigurated = true
         }
@@ -128,6 +121,17 @@ open class TTSegmentedControl: UIView {
         selectItemAt(index:currentSelectedIndex)
         _ = self.subviews.map({$0.isExclusiveTouch = true})
         
+    }
+
+    open func reconfigureView() {
+        configureItemsConent()
+        configureViewBounds()
+
+        configureContainerView()
+        configureItems()
+        configureSelectedView()
+        configureSelectedLabelsView()
+        configureSelectedLabelItems()
     }
     
     //MARK: - Getters
