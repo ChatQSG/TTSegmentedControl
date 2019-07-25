@@ -133,10 +133,11 @@ open class TTSegmentedControl: UIView {
     open func reconfigureColorView() {
         thumbContainerView.backgroundColor = UIColor.clear
         thumbView.backgroundColor = thumbColor
+        allItemLabels.forEach { $0.textColor = defaultTextColor }
         configureItemsConent()
         layoutSubviews()
     }
-    
+
     //MARK: - Getters
     fileprivate var allItemLabels: [UILabel] = []
     fileprivate var allSelectedItemLabels: [UILabel] = []
